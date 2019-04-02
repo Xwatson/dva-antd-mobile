@@ -1,0 +1,9 @@
+{
+  "extraBabelPlugins": [
+    ["import", { "libraryName": "antd-mobile", "style": true }]
+  ],
+  "theme": "./theme-config.js",
+  "html": {
+    "template": "./src/index.ejs"
+  }
+}
