@@ -1,6 +1,6 @@
 import './CoreLayout.less';
 import React from 'react';
-import { Route, Switch } from 'dva/router';
+import { Route, Switch, Redirect } from 'dva/router';
 import PropTypes from 'prop-types';
 import { NavBar, Icon } from 'antd-mobile';
 
@@ -24,7 +24,13 @@ export default class CoreLayout extends React.Component {
         >NavBar</NavBar>
         <Switch>
           {
-            routes.map(({ path, component }) => <Route key={path} exact path={path} component={component} />)
+            routes.map(({ path, redirect, component }) => {
+              if (component) {
+                return <Route key={path} exact path={path} component={component} />
+              } else {
+                return <Redirect key={path} exact from={path} to={redirect} />
+              }
+            })
           }
         </Switch>
       </div>

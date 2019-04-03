@@ -14,11 +14,22 @@ function RouterConfig({ history, app }) {
   // route配置
   const routes = [
     {
+      path: '/user',
+      layout: LoginLayout, // 使用登陆布局
+      children: [
+
+      ]
+    },
+    {
       path: '/',
-      layout: CoreLayout, // 使用布局
+      layout: CoreLayout, // 使用主布局
       children: [
         {
           path: '/',
+          redirect: '/home'
+        },
+        {
+          path: '/home',
           component: dynamic({
             app,
             models: () => [import('./models/example')],
@@ -27,13 +38,6 @@ function RouterConfig({ history, app }) {
         }
       ]
     },
-    {
-      path: '/user',
-      layout: LoginLayout,
-      children: [
-
-      ]
-    }
   ]
 
   return (
@@ -41,10 +45,9 @@ function RouterConfig({ history, app }) {
       <Router history={history}>
         <Switch>
           {
-            routes.map(({ path, layout, children }) => {
-              const Layout = layout
+            routes.map(({ path, layout: Layout, children }) => {
               return (
-                <Route key={path} path={path} exact
+                <Route key={path} path={path}
                   component={(props) => <Layout { ...props } routes={children} />} />
               )
             })
