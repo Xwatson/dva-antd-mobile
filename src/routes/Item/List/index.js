@@ -1,10 +1,13 @@
 import React from 'react';
-import { NavLink  } from 'react-router-dom'
+import { Link } from 'dva/router';
+import Page from '@page'
 
 export default () => {
   return (
-    <ul>
-      <li><NavLink  to="/items/1">详情1</NavLink ></li>
-    </ul>
+    <Page>
+      <ul>
+        <li><Link to="/items/1">详情1</Link></li>
+      </ul>
+    </Page>
   )
 }

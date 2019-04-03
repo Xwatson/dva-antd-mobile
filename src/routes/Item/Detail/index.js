@@ -1,7 +1,8 @@
 import React from 'react';
+import Page from '@page';
 
 export default () => {
   return (
-    <div>我是详情</div>
+    <Page>我是详情</Page>
   )
 }

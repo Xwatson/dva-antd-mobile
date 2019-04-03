@@ -4,10 +4,11 @@ import { Switch } from 'dva/router';
 import PropTypes from 'prop-types';
 import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
-const childFactory = classNames => child =>
-  React.cloneElement(child, {
+const childFactory = classNames => child => {
+  return React.cloneElement(child, {
     classNames
-  });
+  })
+};
 
 export default class RouteSwitch extends React.Component {
   static propTypes = {
@@ -32,7 +33,7 @@ export default class RouteSwitch extends React.Component {
   }
 
   render() {
-    const { location, children } = this.props;
+    const { children } = this.props;
     const { locations: [locationA, locationB] } = this.state;
     const levelA = locationA.pathname.split('/').length;
     const levelB = locationB.pathname.split('/').length;
@@ -44,13 +45,13 @@ export default class RouteSwitch extends React.Component {
         childFactory={childFactory(classNames)}
       >
         <CSSTransition
-          key={location.key}
+          key={locationA.key}
           classNames={classNames}
-          timeout={5000}
-          mountOnEnter={true}
-          unmountOnExit={true}
+          timeout={500}
         >
-          <Switch location={location}>{children}</Switch>
+          <div>
+            <Switch location={locationA}>{children}</Switch>
+          </div>
         </CSSTransition>
       </TransitionGroup>
     )
