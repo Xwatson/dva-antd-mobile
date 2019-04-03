@@ -10,14 +10,16 @@
     "@types/history": "^4.7.2",
     "@types/moment": "^2.13.0",
     "@types/prop-types": "^15.7.0",
+    "@types/react-transition-group": "^2.0.16",
     "antd-mobile": "^2.2.11",
     "dva": "^2.4.1",
     "dva-loading": "^2.0.6",
     "history": "^4.9.0",
     "moment": "^2.24.0",
     "prop-types": "^15.7.2",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-transition-group": "^2.8.0"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
