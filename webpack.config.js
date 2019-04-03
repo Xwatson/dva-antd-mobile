@@ -1,5 +1,5 @@
 const path = require("path");
-import webpack from 'webpack';
+import webpack from 'webpack'; // eslint-disable-line
 
 module.exports = (webpackConfig, env) => {
   const production = env === 'production'
@@ -14,10 +14,6 @@ module.exports = (webpackConfig, env) => {
     "react-dom",
     "moment"
   ];
-
-  webpackConfig.resolve.alias = {
-    'components': path.resolve(__dirname, './src/components'),
-  };
 
   webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
