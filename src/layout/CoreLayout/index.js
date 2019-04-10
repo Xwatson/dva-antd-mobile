@@ -1,10 +1,10 @@
-import './CoreLayout.less';
+import style from './CoreLayout.less';
 import React from 'react';
 import { Route, Redirect } from 'dva/router';
 import PropTypes from 'prop-types';
-import { NavBar, Icon } from 'antd-mobile';
 
 import RouteSwitch from '../../components/RouteSwitch'
+import Page from '@page'
 
 export default class CoreLayout extends React.Component {
   static propTypes = {
@@ -14,23 +14,14 @@ export default class CoreLayout extends React.Component {
   }
 
   render() {
-    const { routes, location, history } = this.props
+    const { routes, location } = this.props
     return (
-      <div className="layout core-layout">
-        <NavBar
-          mode="light"
-          icon={<Icon type="left" />}
-          onLeftClick={() => history.goBack()}
-          rightContent={[
-            <Icon key="0" type="search" style={{ marginRight: '16px' }} />,
-            <Icon key="1" type="ellipsis" />,
-          ]}
-        >NavBar</NavBar>
+      <div className={style.coreLayout}>
         <RouteSwitch location={location}>
           {
-            routes.map(({ path, redirect, component }) => {
-              if (component) {
-                return <Route key={path} exact path={path} component={component} />
+            routes.map(({ path, redirect, component: Component, navBar }) => {
+              if (Component) {
+                return <Route key={path} exact path={path} render={(props) => <Page props={props} navBar={navBar} ><Component /></Page>} />
               } else {
                 return <Redirect key={path} exact from={path} to={redirect} />
               }

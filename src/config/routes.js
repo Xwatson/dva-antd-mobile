@@ -20,6 +20,9 @@ export default (app) => {
         },
         {
           path: '/home',
+          navBar: {
+            title: '首页'
+          },
           component: dynamic({
             app,
             models: () => [import('../models/example')],
@@ -28,6 +31,9 @@ export default (app) => {
         },
         {
           path: '/items',
+          navBar: {
+            title: '列表'
+          },
           component: dynamic({
             app,
             models: () => [],
@@ -36,6 +42,9 @@ export default (app) => {
         },
         {
           path: '/items/:id',
+          navBar: {
+            title: '详情'
+          },
           component: dynamic({
             app,
             models: () => [],
