@@ -13,7 +13,10 @@ const childFactory = classNames => child => {
 export default class RouteSwitch extends React.Component {
   static propTypes = {
     location: PropTypes.any.isRequired,
-    children: PropTypes.element,
+    children: PropTypes.oneOfType([
+      PropTypes.arrayOf(PropTypes.node),
+      PropTypes.node
+    ]),
   }
 
   static getDerivedStateFromProps({ location: nextLocation }, { locations: [prevLocation] }) {
