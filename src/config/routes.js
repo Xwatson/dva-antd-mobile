@@ -1,6 +1,6 @@
-import dynamic from 'dva/dynamic';
-import CoreLayout from '../layout/CoreLayout';
-import LoginLayout from '../layout/LoginLayout';
+import dynamic from 'dva/dynamic'
+import CoreLayout from '../layout/CoreLayout'
+import LoginLayout from '../layout/LoginLayout'
 
 export default (app) => {
   // route配置
@@ -55,5 +55,5 @@ export default (app) => {
     },
   ]
 
-  return routes;
+  return routes
 }

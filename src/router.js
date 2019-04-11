@@ -1,11 +1,11 @@
-import React from 'react';
-import { Router, Route, Switch } from 'dva/router';
-import moment from 'moment';
-import { LocaleProvider } from 'antd-mobile';
+import React from 'react'
+import { Router, Route, Switch } from 'dva/router'
+import moment from 'moment'
+import { LocaleProvider } from 'antd-mobile'
 import Routes from './config/routes'
 
-import 'moment/locale/zh-cn';
-moment.locale('zh-cn');
+import 'moment/locale/zh-cn'
+moment.locale('zh-cn')
 
 function RouterConfig({ history, app }) {
   const routes = Routes(app)
@@ -24,7 +24,7 @@ function RouterConfig({ history, app }) {
         </Switch>
       </Router>
     </LocaleProvider>
-  );
+  )
 }
 
-export default RouterConfig;
+export default RouterConfig

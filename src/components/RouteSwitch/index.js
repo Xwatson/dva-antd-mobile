@@ -1,14 +1,14 @@
 import './index.less'
-import React from 'react';
-import { Switch } from 'dva/router';
-import PropTypes from 'prop-types';
-import { TransitionGroup, CSSTransition } from 'react-transition-group';
+import React from 'react'
+import { Switch } from 'dva/router'
+import PropTypes from 'prop-types'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 const childFactory = classNames => child => {
   return React.cloneElement(child, {
     classNames
   })
-};
+}
 
 export default class RouteSwitch extends React.Component {
   static propTypes = {
@@ -23,9 +23,9 @@ export default class RouteSwitch extends React.Component {
     if (nextLocation !== prevLocation) {
       return {
         locations: [nextLocation, prevLocation],
-      };
+      }
     }
-    return null;
+    return null
   }
 
   constructor(props) {
@@ -36,11 +36,11 @@ export default class RouteSwitch extends React.Component {
   }
 
   render() {
-    const { children } = this.props;
-    const { locations: [locationA, locationB] } = this.state;
-    const levelA = locationA.pathname.split('/').length;
-    const levelB = locationB.pathname.split('/').length;
-    const classNames = levelA < levelB ? 'slide-right' : 'slide-left';
+    const { children } = this.props
+    const { locations: [locationA, locationB] } = this.state
+    const levelA = locationA.pathname.split('/').length
+    const levelB = locationB.pathname.split('/').length
+    const classNames = levelA < levelB ? 'slide-right' : 'slide-left'
 
     return (
       <TransitionGroup

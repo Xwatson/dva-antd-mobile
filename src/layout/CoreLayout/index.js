@@ -1,7 +1,7 @@
-import style from './CoreLayout.less';
-import React from 'react';
-import { Route, Redirect } from 'dva/router';
-import PropTypes from 'prop-types';
+import style from './CoreLayout.less'
+import React from 'react'
+import { Route, Redirect } from 'dva/router'
+import PropTypes from 'prop-types'
 
 import RouteSwitch from '../../components/RouteSwitch'
 import Page from '@page'

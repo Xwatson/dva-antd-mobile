@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'dva/router';
+import React from 'react'
+import { Link } from 'dva/router'
 
 export default () => {
   return (

@@ -1,6 +1,6 @@
-import './LoginLayout.less';
-import React from 'react';
-import PropTypes from 'prop-types';
+import './LoginLayout.less'
+import React from 'react'
+import PropTypes from 'prop-types'
 
 export default class CoreLayout extends React.Component {
   static propTypes = {

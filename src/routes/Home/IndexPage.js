@@ -1,7 +1,7 @@
-import React from 'react';
+import React from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'dva';
-import styles from './IndexPage.css';
+import { connect } from 'dva'
+import styles from './IndexPage.css'
 
 function IndexPage() {
   return (
@@ -13,10 +13,10 @@ function IndexPage() {
         <li><Link to="/items">列表</Link></li>
       </ul>
     </div>
-  );
+  )
 }
 
 IndexPage.propTypes = {
-};
+}
 
-export default connect()(IndexPage);
+export default connect()(IndexPage)

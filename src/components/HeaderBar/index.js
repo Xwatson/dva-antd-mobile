@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { NavBar, Icon } from 'antd-mobile';
+import { NavBar, Icon } from 'antd-mobile'
 
 export default class HeaderBar extends React.PureComponent {
   static defaultProps = {
