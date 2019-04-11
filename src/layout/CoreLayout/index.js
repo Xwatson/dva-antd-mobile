@@ -27,7 +27,7 @@ export default class CoreLayout extends React.Component {
               }
             })
           }
-          <Route path="*" component={() => <h1>Not Found</h1>} />
+          <Route path="*" render={(props) => <Page props={props} ><h2>Not Found</h2></Page>} />
         </RouteSwitch>
       </div>
     )

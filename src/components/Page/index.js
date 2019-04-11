@@ -3,6 +3,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import HeaderBar from '../HeaderBar'
+import FooterBar from '../FooterBar'
 export default class Page extends React.PureComponent {
   static propTypes = {
     props: PropTypes.any.isRequired,
@@ -32,8 +33,10 @@ export default class Page extends React.PureComponent {
         <header>
           <HeaderBar {...navBar} history={props.history} options={headerBarOptions} />
         </header>
-        <div className={style.page}>{React.cloneElement(children, { ...props, setHeaderBar: this.setHeaderBar })}</div>
-        <footer></footer>
+        <div className={style.pageContent}>{React.cloneElement(children, { ...props, setHeaderBar: this.setHeaderBar })}</div>
+        <footer className={style.pageFooter}>
+          <FooterBar history={props.history} />
+        </footer>
       </div>
     )
   }
