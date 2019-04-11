@@ -12,8 +12,12 @@
 ```
   npm install
 ```
+### 运行
+```
+  npm start
+```
 ### 配置
-* > 路由配置 src/config/routes.js
+> 路由配置 src/config/routes.js
 ``` JavaScript
 {
       path: '/user',
@@ -42,8 +46,4 @@
         ...
       ]
     },
-```
-### 运行
-```
-  npm start
 ```
