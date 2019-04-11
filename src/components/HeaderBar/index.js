@@ -5,27 +5,32 @@ import { NavBar, Icon } from 'antd-mobile';
 export default class HeaderBar extends React.PureComponent {
   static defaultProps = {
     mode: 'light',
-    title: ''
+    title: '',
   }
   static propTypes = {
-    history: PropTypes.any.isRequired
+    history: PropTypes.object.isRequired,
+    options: PropTypes.object
   }
 
   render() {
-    const { title, history, onChange } = this.props
+    const { history, options = {} } = this.props
     const pathLength = history.location.pathname.split('/').length
-    const defaultProps = {}
+    const defaultProps = { ...this.props, ...options }
     if (pathLength > 2) {
       defaultProps.icon = <Icon type="left" />
       defaultProps.onLeftClick = (e) => {
-        if (onChange instanceof Function) {
-          onChange(e, 'onLeftClick') // 参数：event，事件类型
+        let isPreventDefault = true
+        if (typeof options.onChange === 'function') {
+          isPreventDefault = options.onChange(e, 'onLeftClick') // 参数：event，事件类型
         }
-        history.goBack()
+        if (isPreventDefault !== false) {
+          history.goBack()
+        }
       }
     }
+    delete defaultProps.options
     return (
-      <NavBar {...defaultProps} {...this.props} >{title}</NavBar>
+      <NavBar {...defaultProps} >{defaultProps.title}</NavBar>
     )
   }
 }
