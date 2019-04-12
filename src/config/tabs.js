@@ -3,12 +3,11 @@ const Tabs = [
   {
     path: '/home',
     title: '首页',
-    defaultSelected: true,
     icon: 'icon-home2',
     selectedIcon: 'icon-home_fill',
   },
   {
-    path: '/categories',
+    path: '/items',
     title: '分类',
     icon: 'icon-category',
     selectedIcon: 'icon-category_fill',

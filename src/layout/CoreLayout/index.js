@@ -3,8 +3,10 @@ import React from 'react'
 import { Route, Redirect } from 'dva/router'
 import PropTypes from 'prop-types'
 
-import RouteSwitch from '../../components/RouteSwitch'
+import RouteSwitch from '@components/RouteSwitch'
+import FooterBar from '@components/FooterBar'
 import Page from '@page'
+import NotFound from '@routes/NotFound'
 
 export default class CoreLayout extends React.Component {
   static propTypes = {
@@ -14,7 +16,7 @@ export default class CoreLayout extends React.Component {
   }
 
   render() {
-    const { routes, location } = this.props
+    const { routes, location, history } = this.props
     return (
       <div className={style.coreLayout}>
         <RouteSwitch location={location}>
@@ -27,8 +29,11 @@ export default class CoreLayout extends React.Component {
               }
             })
           }
-          <Route path="*" render={(props) => <Page props={props} ><h2>Not Found</h2></Page>} />
+          <Route path="*" render={(props) => <Page props={props} ><NotFound /></Page>} />
         </RouteSwitch>
+        <footer className={style.footer}>
+          <FooterBar history={history} location={location} />
+        </footer>
       </div>
     )
   }
