@@ -10,6 +10,7 @@ function IndexPage() {
       <div className={styles.welcome} />
       <ul className={styles.list}>
         <li>To get started, edit <code>src/index.js</code> and save to reload.</li>
+        <li><input type="text" /></li>
         <li><Link to="/items">列表</Link></li>
       </ul>
     </div>

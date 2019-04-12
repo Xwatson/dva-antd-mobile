@@ -20,7 +20,8 @@ export default class Page extends React.PureComponent {
     this.callSetHeaderBarFlag = false
   }
   setHeaderBar = (options) => {
-    if (!this.callSetHeaderBarFlag) {
+    const { navBar } = this.props
+    if (navBar && !this.callSetHeaderBarFlag) {
       this.callSetHeaderBarFlag = true
       this.setState({
         headerBarOptions: options
@@ -31,12 +32,17 @@ export default class Page extends React.PureComponent {
   render() {
     const { props, navBar, children } = this.props
     const { headerBarOptions } = this.state
+    const pathLength = props.location.pathname.split('/').length
     return (
       <div className={style.pageWrapper}>
-        <header>
-          <HeaderBar {...navBar} history={props.history} options={headerBarOptions} />
-        </header>
-        <div className={style.pageContent}>{React.cloneElement(children, { ...props, setHeaderBar: this.setHeaderBar })}</div>
+        {
+          navBar ?
+            <header>
+              <HeaderBar {...navBar} history={props.history} options={headerBarOptions} />
+            </header> :
+            null
+        }
+        <div className={style.pageContent} style={{ top: `${navBar ? 45 : 0}px`, bottom: `${pathLength === 2 ? 50 : 0}px` }}>{React.cloneElement(children, { ...props, setHeaderBar: this.setHeaderBar })}</div>
       </div>
     )
   }
