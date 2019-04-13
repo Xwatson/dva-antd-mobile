@@ -17,7 +17,7 @@
   npm start
 ```
 ### 配置
-> 路由配置 src/config/routes.js
+> 路由配置 ```src/config/routes.js```
 ``` JavaScript
 {
       path: '/user',
@@ -46,4 +46,15 @@
         ...
       ]
     },
+```
+
+> 页脚```tabBar```配置 ```src/config/tabs.js```
+``` JavaScript
+  {
+    path: '/home', // 跳转路由
+    title: '首页', // 显示标题
+    icon: 'icon-home2', // 默认icon
+    selectedIcon: 'icon-home_fill', // 选中icon
+  },
+  ...
 ```
