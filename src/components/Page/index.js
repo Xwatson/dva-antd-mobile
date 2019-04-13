@@ -3,6 +3,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 import HeaderBar from '../HeaderBar'
+import { getDisableFooterBar } from '../../utils/utils'
+
 export default class Page extends React.PureComponent {
   static propTypes = {
     props: PropTypes.any.isRequired,
@@ -32,17 +34,22 @@ export default class Page extends React.PureComponent {
   render() {
     const { props, navBar, children } = this.props
     const { headerBarOptions } = this.state
-    const pathLength = props.location.pathname.split('/').length
+    const isDisableFooterBar = getDisableFooterBar(props.location.pathname)
     return (
       <div className={style.pageWrapper}>
         {
           navBar ?
-            <header>
-              <HeaderBar {...navBar} history={props.history} options={headerBarOptions} />
+            <header className={style.pageHeader}>
+              <div className={style.pageHeaderBar}>
+                <HeaderBar {...navBar} history={props.history} options={headerBarOptions} />
+              </div>
             </header> :
             null
         }
-        <div className={style.pageContent} style={{ top: `${navBar ? 45 : 0}px`, bottom: `${pathLength === 2 ? 50 : 0}px` }}>{React.cloneElement(children, { ...props, setHeaderBar: this.setHeaderBar })}</div>
+        <div className={style.pageContent}>{React.cloneElement(children, { ...props, setHeaderBar: this.setHeaderBar })}</div>
+        {
+          isDisableFooterBar ? <div className={style.footerPlaceholder} /> : null
+        }
       </div>
     )
   }

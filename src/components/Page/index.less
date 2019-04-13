@@ -2,13 +2,24 @@
 .pageWrapper {
   width: 100vw;
   position: absolute;
-  top: 0;
-  bottom: 0;
 }
-
-.pageContent {
+.pageHeader {
+  position: relative;
   width: 100vw;
-  position: absolute;
+  height: 45px;
+}
+.pageHeaderBar{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 999;
+}
+.pageContent {
+  position: relative;
+  width: 100vw;
   overflow-y: auto;
-  border: 1px solid red;
+}
+.footerPlaceholder{
+  height: 50px;
 }
