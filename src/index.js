@@ -2,8 +2,9 @@ import dva from 'dva'
 import './index.less'
 import { createBrowserHistory } from 'history'
 import createLoading from 'dva-loading'
-
 import { Toast } from 'antd-mobile'
+
+import * as sw from './serviceWorker'
 
 // 1. Initialize
 const app = dva({
@@ -28,3 +29,5 @@ app.router(require('./router').default)
 
 // 5. Start
 app.start('#root')
+
+sw.unregister()
