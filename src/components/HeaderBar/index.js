@@ -24,7 +24,7 @@ const HeaderBar = (props) => {
 }
 
 HeaderBar.defaultProps = {
-  mode: 'light',
+  mode: 'dart',
   title: '',
 }
 
