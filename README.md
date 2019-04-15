@@ -7,7 +7,7 @@
 >* 使用```ant-mobile```作为UI库
 >* ```eslint```规则继承```umi```
 >* 基于 ```react-transition-group``` 实现路由动画过度组件 ```RouteSwitch```
-
+>* 实现可离线缓存/PWA应用
 ### 安装
 ```
   npm install
