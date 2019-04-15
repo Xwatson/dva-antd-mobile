@@ -1,5 +1,6 @@
 const path = require("path")
-import webpack from 'webpack' // eslint-disable-line
+const webpack = require('webpack') // eslint-disable-line
+const WorkboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = (webpackConfig, env) => {
   const production = env === 'production'
@@ -18,6 +19,11 @@ module.exports = (webpackConfig, env) => {
   webpackConfig.plugins.push(new webpack.optimize.CommonsChunkPlugin({
     name: 'vendor',
     filename: "[name].[hash].js"
+  }))
+
+  webpackConfig.plugins.push(new WorkboxPlugin.GenerateSW({
+    clientsClaim: true,
+    skipWaiting: true
   }))
 
   return webpackConfig
