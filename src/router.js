@@ -17,7 +17,7 @@ function RouterConfig({ history, app }) {
             routes.map(({ path, layout: Layout, children }) => {
               return (
                 <Route key={path} path={path}
-                  component={(props) => <Layout { ...props } routes={children} />} />
+                  render={(props) => <Layout { ...props } routes={children} />} />
               )
             })
           }
