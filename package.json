@@ -1,4 +1,8 @@
 {
+  "name": "{{projectName}}",
+  "version": "{{projectVersion}}",
+  "description": "{{projectDescription}}",
+  "author": "X·watson",
   "private": true,
   "scripts": {
     "start": "roadhog server",
